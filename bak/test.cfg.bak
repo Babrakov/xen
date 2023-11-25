@@ -1,0 +1,53 @@
+#
+# Configuration file for the Xen instance krs23.ru, created
+# by xen-tools 4.4 on Fri Sep 18 08:47:28 2015.
+#
+
+#
+#  Kernel + memory size
+#
+
+
+kernel = "/var/lib/xen/images/ubuntu-netboot/xenial16LTS/vmlinuz"
+ramdisk = "/var/lib/xen/images/ubuntu-netboot/xenial16LTS/initrd.gz"
+#bootloader = '/usr/lib/xen-4.4/bin/pygrub'
+
+vcpus       = '2'
+memory      = '2048'
+
+
+#
+#  Disk device(s).
+#
+#root        = '/dev/xvda2 ro'
+
+disk        = [
+                  '/dev/vg/test-disk,raw,xvda1,rw',
+                  '/dev/vg/test-swap,raw,xvda2,rw',
+              ]
+#extra = "root=/dev/xvda1"
+
+#
+#  Physical volumes
+#
+
+
+#
+#  Hostname
+#
+name        = 'test'
+
+#
+#  Networking
+#
+vif         = [ 'ip=193.33.132.142 ,mac=00:16:3E:76:47:D4' ]
+
+#
+#  Behaviour
+#
+on_poweroff = 'destroy'
+on_reboot   = 'restart'
+on_crash    = 'restart'
+
+
+
